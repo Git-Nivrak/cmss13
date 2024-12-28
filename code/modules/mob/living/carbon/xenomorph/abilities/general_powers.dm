@@ -778,6 +778,7 @@
 		if (!do_after(xeno, xeno.ammo.spit_windup, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
 			to_chat(xeno, SPAN_XENODANGER("We decide to cancel our spit."))
 			spitting = FALSE
+			apply_cooldown()
 			return
 	plasma_cost = xeno.ammo.spit_cost
 
