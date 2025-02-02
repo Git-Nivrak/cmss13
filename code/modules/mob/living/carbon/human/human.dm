@@ -835,24 +835,6 @@
 		to_chat(user, SPAN_NOTICE("You add a [newcolor] holo card on [src]."))
 	hud_set_holocard()
 
-/mob/living/carbon/human/tgui_interact(mob/user, datum/tgui/ui) // I'M SORRY, SO FUCKING SORRY
-	. = ..()
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "HealthScan", "Last Medical Scan of [src]")
-		ui.open()
-		ui.set_autoupdate(FALSE)
-
-/mob/living/carbon/human/ui_data(mob/user)
-	var/me_ref = WEAKREF(src)
-	for(var/datum/data/record/R as anything in GLOB.data_core.medical)
-		if(R.fields["ref"] == me_ref)
-			if(R.fields["last_tgui_scan_result"])
-				return R.fields["last_tgui_scan_result"]
-
-/mob/living/carbon/human/ui_state(mob/user)
-	return GLOB.not_incapacitated_state
-
 ///get_eye_protection()
 ///Returns a number between -1 to 2
 /mob/living/carbon/human/get_eye_protection()

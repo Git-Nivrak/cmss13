@@ -332,47 +332,6 @@
 		if(601 to 1200) . += "It looks a bit used."
 		if(1201 to 1800) . += "It looks really used."
 
-/obj/structure/closet/bodybag/cryobag/Topic(href, href_list)
-	. = ..()
-	if(.)
-		return
-	if (href_list["scanreport"])
-		if(hasHUD(usr,"medical"))
-			if(!skillcheck(usr, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC))
-				to_chat(usr, SPAN_WARNING("You're not trained to use this."))
-				return
-			if(get_dist(usr, src) > 7)
-				to_chat(usr, SPAN_WARNING("[src] is too far away."))
-				return
-			if(ishuman(stasis_mob))
-				var/mob/living/carbon/human/H = stasis_mob
-				var/stasis_ref = WEAKREF(H)
-				for(var/datum/data/record/R as anything in GLOB.data_core.medical)
-					if (R.fields["ref"] == stasis_ref)
-						if(R.fields["last_scan_time"] && R.fields["last_tgui_scan_result"])
-							tgui_interact(usr, human = H)
-						break
-
-/obj/structure/closet/bodybag/cryobag/tgui_interact(mob/user, datum/tgui/ui, mob/living/carbon/human/human)
-	. = ..()
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "HealthScan", "Last Medical Scan of [human]")
-		ui.open()
-		ui.set_autoupdate(FALSE)
-
-/obj/structure/closet/bodybag/cryobag/ui_data(mob/user)
-	if(ishuman(stasis_mob))
-		var/mob/living/carbon/human/H = stasis_mob
-		var/stasis_ref = WEAKREF(H)
-		for(var/datum/data/record/R as anything in GLOB.data_core.medical)
-			if(R.fields["ref"] == stasis_ref)
-				if(R.fields["last_tgui_scan_result"])
-					return R.fields["last_tgui_scan_result"]
-
-/obj/structure/closet/bodybag/cryobag/ui_state(mob/user)
-	return GLOB.not_incapacitated_state
-
 /obj/item/trash/used_stasis_bag
 	name = "used stasis bag"
 	icon = 'icons/obj/bodybag.dmi'
