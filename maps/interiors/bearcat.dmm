@@ -1,0 +1,127 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/void/vehicle,
+/area/interior/vehicle/bearcat)
+"l" = (
+/obj/structure/bed/chair/vehicle/bearcat{
+	pixel_y = 16;
+	pixel_x = 12;
+	dir = 4
+	},
+/obj/structure/bed/chair/vehicle/bearcat{
+	pixel_y = 3;
+	pixel_x = 12;
+	dir = 4
+	},
+/turf/open/void/vehicle,
+/area/interior/vehicle/bearcat)
+"m" = (
+/obj/structure/bed/chair/vehicle/bearcat{
+	pixel_y = 9;
+	pixel_x = -10;
+	dir = 8
+	},
+/obj/structure/bed/chair/vehicle/bearcat{
+	pixel_y = -4;
+	pixel_x = -10;
+	dir = 8
+	},
+/turf/open/void/vehicle,
+/area/interior/vehicle/bearcat)
+"r" = (
+/obj/structure/bed/chair/vehicle/bearcat{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 16
+	},
+/obj/structure/bed/chair/vehicle/bearcat{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 3
+	},
+/turf/open/void/vehicle,
+/area/interior/vehicle/bearcat)
+"E" = (
+/obj/effect/landmark/interior/spawn/entrance{
+	exit_type = /obj/structure/interior_exit/vehicle/bearcat/back;
+	name = "bearcat back door";
+	pixel_y = -8;
+	tag = "back";
+	offset_y = -1;
+	dir = 1
+	},
+/turf/open/void/vehicle,
+/area/interior/vehicle/bearcat)
+"I" = (
+/obj/structure/prop/vehicle/bearcat,
+/turf/open/void/vehicle,
+/area/interior/vehicle/bearcat)
+"K" = (
+/obj/structure/bed/chair/vehicle/bearcat{
+	pixel_x = 10;
+	pixel_y = 9;
+	dir = 4
+	},
+/obj/structure/bed/chair/vehicle/bearcat{
+	dir = 4;
+	pixel_x = 10;
+	pixel_y = -4
+	},
+/turf/open/void/vehicle,
+/area/interior/vehicle/bearcat)
+"M" = (
+/obj/effect/landmark/interior/spawn/entrance{
+	exit_type = /obj/structure/interior_exit/vehicle/bearcat/right;
+	name = "bearcat side door";
+	pixel_y = 5;
+	tag = "left";
+	pixel_x = 15;
+	offset_x = -1
+	},
+/turf/open/void/vehicle,
+/area/interior/vehicle/bearcat)
+"N" = (
+/obj/effect/landmark/interior/spawn/entrance{
+	exit_type = /obj/structure/interior_exit/vehicle/bearcat/left;
+	name = "bearcat side door";
+	pixel_y = 5;
+	tag = "right";
+	pixel_x = -15;
+	offset_x = 1
+	},
+/turf/open/void/vehicle,
+/area/interior/vehicle/bearcat)
+"Q" = (
+/turf/open/floor,
+/area/interior/vehicle/bearcat)
+"V" = (
+/obj/effect/landmark/interior/spawn/vehicle_driver_seat{
+	pixel_y = -10
+	},
+/turf/open/floor,
+/area/interior/vehicle/bearcat)
+
+(1,1,1) = {"
+a
+K
+N
+l
+a
+I
+"}
+(2,1,1) = {"
+E
+Q
+Q
+Q
+V
+a
+"}
+(3,1,1) = {"
+a
+m
+M
+r
+a
+a
+"}
