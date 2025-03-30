@@ -120,6 +120,7 @@
 	icon = 'icons/obj/vehicles/blackfoot.dmi'
 	pixel_x = -64
 	pixel_y = -160
+	anchored = TRUE
 	layer = ABOVE_MOB_LAYER
 	flags_atom = NO_ZFALL
 
@@ -128,6 +129,7 @@
 	icon_state = "downwash"
 	pixel_x = -64
 	pixel_y = -32
+	anchored = TRUE
 
 /obj/vehicle/multitile/blackfoot/Initialize(mapload, ...)
 	. = ..()
@@ -291,7 +293,7 @@
 			break
 
 		below_turf = SSmapping.get_turf_below(below_turf)
-	
+
 	forceMove(below_turf)
 	cell_explosion(below_turf, 400, 50, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, create_cause_data("blackfoot crash"))
 	qdel(shadow_holder)
@@ -300,7 +302,7 @@
 /obj/vehicle/multitile/blackfoot/before_move(direction)
 	if(back_door.open)
 		update_rear_view()
-	
+
 	if(state != STATE_FLIGHT && state != STATE_VTOL)
 		return
 
@@ -314,7 +316,7 @@
 	while(SSmapping.get_turf_below(shadow_turf))
 		if(!fits_in_turf(SSmapping.get_turf_below(shadow_turf)))
 			break
-		
+
 		shadow_turf = SSmapping.get_turf_below(shadow_turf)
 
 	shadow_holder.dir = dir
@@ -329,7 +331,7 @@
 			/obj/vehicle/multitile/proc/switch_hardpoint,
 		))
 		return
-	
+
 	add_verb(M.client, list(
 		/obj/vehicle/multitile/proc/get_status_info,
 		/obj/vehicle/multitile/proc/toggle_door_lock,
@@ -411,7 +413,7 @@
 			/obj/vehicle/multitile/proc/switch_hardpoint,
 		))
 		return
-	
+
 	remove_verb(M.client, list(
 		/obj/vehicle/multitile/proc/get_status_info,
 		/obj/vehicle/multitile/proc/toggle_door_lock,
@@ -448,7 +450,7 @@
 /obj/vehicle/multitile/blackfoot/give_seated_mob_actions(mob/seated_mob)
 	if(seats[VEHICLE_DRIVER] != seated_mob)
 		return
-	
+
 	give_action(seated_mob, /datum/action/human_action/vehicle_unbuckle/blackfoot)
 
 /obj/vehicle/multitile/blackfoot/Collided(atom/movable/collided_atom)
@@ -608,7 +610,7 @@
 	var/turf/top_turf = SSmapping.get_turf_above(get_turf(src))
 	while(SSmapping.get_turf_above(top_turf))
 		top_turf = SSmapping.get_turf_above(top_turf)
-	
+
 	forceMove(top_turf)
 
 	var/turf/shadow_turf = SSmapping.get_turf_below(get_turf(src))
@@ -616,7 +618,7 @@
 	while(SSmapping.get_turf_below(shadow_turf))
 		if(!fits_in_turf(SSmapping.get_turf_below(shadow_turf)))
 			break
-		
+
 		shadow_turf = SSmapping.get_turf_below(shadow_turf)
 	shadow_holder = new(shadow_turf)
 	shadow_holder.icon_state = "[get_sprite_state()]_shadow"
@@ -667,7 +669,7 @@
 			break
 
 		below_turf = SSmapping.get_turf_below(below_turf)
-	
+
 	forceMove(below_turf)
 	qdel(shadow_holder)
 	flags_atom &= ~NO_ZFALL
@@ -1325,6 +1327,52 @@
 			return
 
 		launchers.try_add_clip(ammo, user)
+
+/obj/effect/vehicle_spawner/blackfoot
+	name = "Blackfoot Spawner"
+	icon = 'icons/obj/vehicles/blackfoot.dmi'
+	icon_state = "stowed"
+	pixel_x = -64
+	pixel_y = -32
+
+/obj/effect/vehicle_spawner/blackfoot/Initialize()
+	. = ..()
+	spawn_vehicle()
+	qdel(src)
+
+//PRESET: default hardpoints, destroyed
+/obj/effect/vehicle_spawner/blackfoot/spawn_vehicle()
+	var/obj/vehicle/multitile/blackfoot/vehicle = new (loc)
+
+	load_misc(vehicle)
+	load_hardpoints(vehicle)
+	handle_direction(vehicle)
+	vehicle.update_icon()
+
+/obj/effect/vehicle_spawner/blackfoot/decrepit/spawn_vehicle()
+	var/obj/vehicle/multitile/blackfoot/vehicle = new (loc)
+
+	load_misc(vehicle)
+	load_hardpoints(vehicle)
+	handle_direction(vehicle)
+	load_damage(vehicle)
+	vehicle.state = STATE_DESTROYED
+	vehicle.update_icon()
+
+/obj/effect/vehicle_spawner/blackfoot/decrepit/load_hardpoints(obj/vehicle/multitile/blackfoot/vehicle)
+	vehicle.add_hardpoint(new /obj/item/hardpoint/locomotion/blackfoot_thrusters)
+	vehicle.add_hardpoint(new /obj/item/hardpoint/primary/chimera_launchers)
+	vehicle.add_hardpoint(new /obj/item/hardpoint/support/sensor_array)
+	vehicle.add_hardpoint(new /obj/item/hardpoint/secondary/doorgun)
+
+/obj/effect/vehicle_spawner/blackfoot/plain/load_hardpoints(obj/vehicle/multitile/blackfoot/vehicle)
+	vehicle.add_hardpoint(new /obj/item/hardpoint/locomotion/blackfoot_thrusters)
+
+/obj/effect/vehicle_spawner/blackfoot/fixed/load_hardpoints(obj/vehicle/multitile/blackfoot/vehicle)
+	vehicle.add_hardpoint(new /obj/item/hardpoint/locomotion/blackfoot_thrusters)
+	vehicle.add_hardpoint(new /obj/item/hardpoint/primary/chimera_launchers)
+	vehicle.add_hardpoint(new /obj/item/hardpoint/support/sensor_array)
+	vehicle.add_hardpoint(new /obj/item/hardpoint/secondary/doorgun)
 
 #undef STATE_TUGGED
 #undef STATE_STOWED
