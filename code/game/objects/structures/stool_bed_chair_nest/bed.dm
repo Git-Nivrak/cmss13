@@ -15,8 +15,8 @@
 	can_buckle = TRUE
 	buckle_lying = 90
 	throwpass = TRUE
-	debris = list(/obj/item/stack/sheet/metal)
-	var/buildstacktype = /obj/item/stack/sheet/metal
+	debris = list(/obj/item/stack/sheet/scrap_metal)
+	var/buildstacktype = /obj/item/stack/sheet/scrap_metal
 	var/buildstackamount = 1
 	var/foldabletype //To fold into an item (e.g. roller bed item)
 	var/buckling_y = 0 //pixel y shift to give to the buckled mob.
@@ -290,7 +290,7 @@
 	if(!length(contents))
 		new rollertype(src)
 	var/obj/structure/bed/roller/roller = locate(rollertype) in contents
-	roller.forceMove(user.loc)
+	roller.forceMove(location)
 	to_chat(user, SPAN_NOTICE("You deploy [roller]."))
 	roller.add_fingerprint(user)
 	user.temp_drop_inv_item(src)

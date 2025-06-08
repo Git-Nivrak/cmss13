@@ -67,6 +67,9 @@
 	/// Is fishing allowed on this turf
 	var/fishing_allowed = FALSE
 
+	/// Can xenomorph weeds grow on the tile
+	var/is_weedable = FULLY_WEEDABLE
+
 /turf/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE) // this doesn't parent call for optimisation reasons
 	if(flags_atom & INITIALIZED)
@@ -113,6 +116,11 @@
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
+
+	//dense turfs stop weeds
+	if(density)
+		is_weedable = NOT_WEEDABLE
+
 
 	if(istransparentturf(src))
 		return INITIALIZE_HINT_LATELOAD
@@ -610,7 +618,7 @@
 				if(amount >1)
 					visible_message(SPAN_BOLDNOTICE("Pieces of metal crash down from above!"))
 				for(var/i=1, i<=amount, i++)
-					new /obj/item/stack/sheet/metal(pick(turfs))
+					new /obj/item/stack/sheet/scrap_metal(pick(turfs))
 		if(CEILING_UNDERGROUND_ALLOW_CAS, CEILING_UNDERGROUND_BLOCK_CAS, CEILING_DEEP_UNDERGROUND)
 			playsound(src, "sound/effects/meteorimpact.ogg", 60, 1)
 			spawn(8)
@@ -623,7 +631,7 @@
 			playsound(src, "sound/effects/metal_crash.ogg", 60, 1)
 			spawn(8)
 				for(var/i=1, i<=amount, i++)
-					new /obj/item/stack/sheet/metal(pick(turfs))
+					new /obj/item/stack/sheet/scrap_metal(pick(turfs))
 					new /obj/item/ore(pick(turfs))
 	turf_flags |= TURF_DEBRISED
 
@@ -675,44 +683,6 @@
 	return null
 
 //////////////////////////////////////////////////////////
-
-//Check if you can plant weeds on that turf.
-//Does NOT return a message, just a 0 or 1.
-/turf/proc/is_weedable()
-	return density ? NOT_WEEDABLE : FULLY_WEEDABLE
-
-/turf/open/space/is_weedable()
-	return NOT_WEEDABLE
-
-/turf/open/gm/grass/is_weedable()
-	return SEMI_WEEDABLE
-
-/turf/open/gm/dirtgrassborder/is_weedable()
-	return SEMI_WEEDABLE
-
-/turf/open/gm/river/is_weedable()
-	return NOT_WEEDABLE
-
-/turf/open/gm/coast/is_weedable()
-	return NOT_WEEDABLE
-
-/turf/open/snow/is_weedable()
-	return bleed_layer ? NOT_WEEDABLE : FULLY_WEEDABLE
-
-/turf/open/mars/is_weedable()
-	return SEMI_WEEDABLE
-
-/turf/open/jungle/is_weedable()
-	return NOT_WEEDABLE
-
-/turf/open/auto_turf/shale/layer1/is_weedable()
-	return SEMI_WEEDABLE
-
-/turf/open/auto_turf/shale/layer2/is_weedable()
-	return SEMI_WEEDABLE
-
-/turf/closed/wall/is_weedable()
-	return FULLY_WEEDABLE //so we can spawn weeds on the walls
 
 
 /turf/proc/can_dig_xeno_tunnel()

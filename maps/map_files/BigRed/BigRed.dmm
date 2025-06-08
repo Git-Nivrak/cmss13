@@ -594,6 +594,9 @@
 "acl" = (
 /obj/structure/filingcabinet,
 /obj/effect/landmark/objective_landmark/medium,
+/obj/structure/sign/calendar{
+	pixel_y = 30
+	},
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
 "acm" = (
@@ -1333,6 +1336,12 @@
 /obj/structure/window/framed/solaris/reinforced,
 /turf/open/floor/plating,
 /area/bigredv2/caves/lambda/xenobiology)
+"afe" = (
+/obj/structure/sign/calendar/wy{
+	pixel_y = 30
+	},
+/turf/open/floor/wood,
+/area/bigredv2/caves/lambda/breakroom)
 "aff" = (
 /obj/effect/decal/cleanable/mucus,
 /obj/structure/surface/table,
@@ -1343,6 +1352,12 @@
 /obj/structure/pipes/standard/simple/hidden/green,
 /turf/open/floor/plating,
 /area/bigredv2/outside/space_port)
+"afh" = (
+/obj/structure/sign/calendar{
+	pixel_y = 30
+	},
+/turf/open/floor/dark,
+/area/bigredv2/outside/telecomm)
 "afi" = (
 /obj/structure/machinery/door/airlock/multi_tile/almayer/generic{
 	name = "\improper Marshal Office Isolation"
@@ -1380,6 +1395,21 @@
 /obj/effect/landmark/objective_landmark/medium,
 /turf/open/floor/vault2/west,
 /area/bigredv2/outside/marshal_office)
+"afo" = (
+/obj/effect/landmark/spycam_start,
+/turf/open/mars_cave/mars_dirt_4,
+/area/bigredv2/outside/space_port_lz2)
+"afp" = (
+/obj/structure/machinery/landinglight/ds1{
+	dir = 8
+	},
+/obj/effect/landmark/spycam_start,
+/turf/open/floor/asteroidwarning/west,
+/area/bigredv2/outside/space_port)
+"afq" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidfloor/north,
+/area/bigredv2/outside/s)
 "afr" = (
 /obj/structure/machinery/camera/autoname{
 	dir = 4
@@ -1484,6 +1514,10 @@
 /obj/structure/bed/chair/office/dark,
 /turf/open/floor/dark,
 /area/bigredv2/outside/telecomm)
+"afK" = (
+/obj/structure/machinery/transformer/lz2,
+/turf/open/floor/hybrisa/tile/asteroidfloor_bigtile,
+/area/bigredv2/outside/s)
 "afL" = (
 /obj/structure/showcase{
 	icon_state = "broadcaster_send";
@@ -1494,6 +1528,9 @@
 "afM" = (
 /turf/open/floor/plating/platingdmg3/west,
 /area/bigredv2/outside/space_port)
+"afN" = (
+/turf/open/floor/hybrisa/tile/asteroidfloor_bigtile,
+/area/bigredv2/outside/s)
 "afO" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/delivery,
@@ -1513,6 +1550,9 @@
 	},
 /turf/open/floor/delivery,
 /area/bigredv2/outside/marshal_office)
+"afR" = (
+/turf/open/floor/hybrisa/tile/asteroidwarning_bigtile/west,
+/area/bigredv2/outside/nw)
 "afS" = (
 /turf/open/floor/dark,
 /area/bigredv2/outside/marshal_office)
@@ -1633,9 +1673,16 @@
 	},
 /turf/open/floor/asteroidwarning/southeast,
 /area/bigredv2/outside/space_port)
+"agp" = (
+/obj/structure/machinery/transformer/lz1,
+/turf/open/floor/hybrisa/tile/asteroidfloor_bigtile,
+/area/bigredv2/outside/nw)
 "agq" = (
 /turf/open/floor/asteroidwarning/northwest,
 /area/bigredv2/outside/n)
+"agr" = (
+/turf/open/floor/hybrisa/tile/asteroidfloor_bigtile,
+/area/bigredv2/outside/nw)
 "ags" = (
 /turf/open/floor/asteroidwarning/northeast,
 /area/bigredv2/outside/n)
@@ -8136,6 +8183,9 @@
 "aLJ" = (
 /obj/structure/filingcabinet,
 /obj/effect/landmark/objective_landmark/close,
+/obj/structure/sign/calendar{
+	pixel_y = 30
+	},
 /turf/open/floor/darkyellow2/north,
 /area/bigredv2/outside/engineering)
 "aLM" = (
@@ -16116,6 +16166,9 @@
 "bzG" = (
 /obj/structure/surface/table,
 /obj/item/storage/fancy/vials/random,
+/obj/structure/sign/calendar/wy{
+	pixel_y = 30
+	},
 /turf/open/floor/darkblue2/north,
 /area/bigredv2/caves/eta/research)
 "bzH" = (
@@ -19329,9 +19382,7 @@
 /obj/structure/prop/invuln/minecart_tracks/bumper{
 	dir = 4
 	},
-/obj/item/ore/uranium{
-	desc = "You feel fuzzy just looking at it.... it's slightly lumanesant"
-	},
+/obj/item/ore/uranium,
 /turf/open/floor/plating/platingdmg3/west,
 /area/bigredv2/caves/mining)
 "dIH" = (
@@ -20766,6 +20817,9 @@
 "fhy" = (
 /obj/structure/bed/chair/comfy/blue{
 	dir = 8
+	},
+/obj/structure/sign/calendar/wy{
+	pixel_y = 30
 	},
 /turf/open/floor/carpet15_15/west,
 /area/bigredv2/outside/admin_building)
@@ -27298,10 +27352,10 @@
 /turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
 /area/bigredv2/outside/c)
 "mnu" = (
-/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb,
 /obj/item/ammo_casing/shell,
 /obj/item/ammo_casing/shell,
 /obj/effect/decal/cleanable/blood,
+/obj/item/weapon/gun/shotgun/double/with_stock,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "mnv" = (
@@ -32993,11 +33047,11 @@
 /area/bigredv2/outside/medical)
 "rXy" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb,
 /obj/structure/surface/table,
 /obj/item/ammo_magazine/handful/shotgun/buckshot/incendiary{
 	pixel_y = 12
 	},
+/obj/item/weapon/gun/shotgun/double/sawn,
 /turf/open/floor/plating/platingdmg3/west,
 /area/bigredv2/caves/mining)
 "rXJ" = (
@@ -34974,7 +35028,6 @@
 "tQo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ore/uranium{
-	desc = "You feel fuzzy just looking at it.... it's slightly lumanesant";
 	pixel_x = -7;
 	pixel_y = 4
 	},
@@ -35021,18 +35074,14 @@
 /area/bigredv2/outside/c)
 "tRV" = (
 /obj/item/ore/uranium{
-	desc = "You feel fuzzy just looking at it.... it's slightly lumanesant";
 	pixel_x = -8;
 	pixel_y = 9
 	},
 /obj/item/ore/uranium{
-	desc = "You feel fuzzy just looking at it.... it's slightly lumanesant";
 	pixel_x = 4;
 	pixel_y = 15
 	},
-/obj/item/ore/uranium{
-	desc = "You feel fuzzy just looking at it.... it's slightly lumanesant"
-	},
+/obj/item/ore/uranium,
 /turf/open/mars_cave/mars_cave_14,
 /area/bigredv2/caves/mining)
 "tSY" = (
@@ -38647,12 +38696,6 @@
 /obj/structure/window/framed/solaris/reinforced/hull,
 /turf/open/floor/plating/platingdmg3/west,
 /area/bigredv2/oob)
-"xIt" = (
-/obj/item/trash/popcorn{
-	pixel_y = 9
-	},
-/turf/open/floor/asteroidfloor/north,
-/area/bigredv2/outside/nw)
 "xIv" = (
 /obj/structure/machinery/door/airlock/multi_tile/almayer/generic{
 	dir = 8;
@@ -38740,6 +38783,9 @@
 	pixel_y = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/calendar/wy{
+	pixel_y = 30
+	},
 /turf/open/floor,
 /area/bigredv2/outside/admin_building)
 "xLd" = (
@@ -38797,8 +38843,8 @@
 	pixel_y = 7
 	},
 /obj/item/ammo_magazine/shotgun/buckshot,
-/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb,
 /obj/item/reagent_container/food/snacks/packaged_burger,
+/obj/item/weapon/gun/shotgun/double/sawn,
 /turf/open/floor/plating/platingdmg3/west,
 /area/bigredv2/caves/mining)
 "xNa" = (
@@ -38928,18 +38974,14 @@
 /area/bigredv2/caves/lambda/research)
 "xWr" = (
 /obj/item/ore/uranium{
-	desc = "You feel fuzzy just looking at it.... it's slightly lumanesant";
 	pixel_x = 4;
 	pixel_y = 15
 	},
 /obj/item/ore/uranium{
-	desc = "You feel fuzzy just looking at it.... it's slightly lumanesant";
 	pixel_x = -8;
 	pixel_y = 9
 	},
-/obj/item/ore/uranium{
-	desc = "You feel fuzzy just looking at it.... it's slightly lumanesant"
-	},
+/obj/item/ore/uranium,
 /turf/open/floor/plating,
 /area/bigredv2/caves/mining)
 "xWz" = (
@@ -41021,7 +41063,7 @@ acA
 aas
 aas
 acQ
-ade
+afh
 ade
 ade
 aeb
@@ -46443,7 +46485,7 @@ aaT
 aap
 aav
 aaG
-aaT
+afp
 aap
 aav
 aaG
@@ -46957,7 +46999,7 @@ beP
 beP
 aSB
 tVp
-tVp
+afo
 tVp
 tVp
 bgX
@@ -48876,7 +48918,7 @@ ahR
 aeI
 aeI
 aeI
-fWH
+aeI
 aeI
 aeI
 aeI
@@ -49312,7 +49354,7 @@ aeI
 aeI
 aeI
 aeI
-aeI
+mZh
 aeI
 aeI
 aeI
@@ -50163,7 +50205,7 @@ aeI
 aeI
 aeI
 wHT
-ajy
+auF
 anp
 avT
 avT
@@ -50380,7 +50422,7 @@ aeI
 aeI
 aeI
 aeI
-ajy
+aeI
 anp
 qaR
 avT
@@ -50594,10 +50636,10 @@ aeI
 aeI
 aeI
 vWw
-aeI
-mZh
-aeI
-ajy
+aoO
+afR
+afR
+aiw
 anp
 avT
 avT
@@ -50811,10 +50853,10 @@ aeI
 aeI
 aeI
 aeI
-aeI
-aeI
-aeI
-caL
+ajy
+agr
+agp
+ajx
 anp
 anp
 alX
@@ -51027,11 +51069,11 @@ aeI
 aeI
 aeI
 aeI
-aeI
-aeI
-fWH
-aeI
+mZh
 ajy
+agr
+agr
+ajx
 vCl
 ing
 alu
@@ -51243,12 +51285,12 @@ aeI
 aoO
 aiw
 hxn
-aiw
-aiw
-aiw
-aiw
-aiw
-xIt
+ahQ
+aeI
+ajy
+ajx
+ajx
+ajx
 gyv
 vsz
 ngo
@@ -54778,9 +54820,9 @@ nKZ
 mEg
 aMd
 bjx
-bjx
-bjx
-bjx
+blq
+bjw
+afq
 bjw
 axX
 lmi
@@ -54995,10 +55037,10 @@ vkR
 phk
 aIn
 bjy
-bjy
-bjy
-bjB
 blq
+afN
+afK
+bjw
 axX
 bmp
 nVq
@@ -55212,10 +55254,10 @@ iww
 cdI
 aIn
 bjy
-bjy
-bjy
-bkp
 blq
+afN
+afN
+afq
 axX
 bmq
 nVq
@@ -55429,10 +55471,10 @@ oYO
 vrD
 aIn
 bjz
-bjz
-bkp
-bjA
-blq
+blu
+bjx
+bjx
+bjx
 axX
 trr
 tTI
@@ -76202,7 +76244,7 @@ arG
 ara
 atf
 amk
-aqc
+afe
 aqc
 ass
 aqc

@@ -7,8 +7,8 @@
 	health = 30
 	maxhealth = 30
 	climb_delay = CLIMB_DELAY_SHORT
-	stack_type = /obj/item/stack/sheet/metal
-	debris = list(/obj/item/stack/sheet/metal)
+	stack_type = /obj/item/stack/sheet/scrap_metal
+	debris = list(/obj/item/stack/sheet/scrap_metal)
 	stack_amount = 2
 	destroyed_stack_amount = 1
 	crusher_resistant = FALSE
@@ -247,6 +247,12 @@
 
 /obj/structure/barricade/handrail/sandstone/b
 	icon_state = "hr_sandstone_b"
+
+/obj/structure/barricade/handrail/sandstone/dark
+	color = "#2E1E21"
+
+/obj/structure/barricade/handrail/sandstone/b/dark
+	color = "#2E1E21"
 
 /obj/structure/barricade/handrail/pizza
 	name = "\improper diner half-wall"
