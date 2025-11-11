@@ -115,5 +115,5 @@
 
 /obj/structure/computerframe/deconstruct(disassembled = TRUE)
 	if(disassembled)
-		new /obj/item/stack/sheet/metal(src.loc, 5)
+		new /obj/item/stack/sheet/scrap_metal(src.loc, 5)
 	return ..()

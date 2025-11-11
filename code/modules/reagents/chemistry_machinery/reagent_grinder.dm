@@ -435,6 +435,7 @@
 		/obj/item/stack/sheet/mineral/silver = list("silver" = 60),
 		/obj/item/stack/sheet/mineral/gold = list("gold" = 60),
 		/obj/item/stack/sheet/metal = list("iron" = 60),
+		/obj/item/stack/sheet/scrap_metal = list("iron" = 60),
 		/obj/item/stack/sheet/aluminum = list("aluminum" = 60),
 		/obj/item/stack/sheet/copper = list("copper" = 60),
 		/obj/item/grown/nettle/death = list("pacid" = 0),

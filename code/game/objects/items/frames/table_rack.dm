@@ -25,7 +25,7 @@
 
 	..()
 	if(HAS_TRAIT(W, TRAIT_TOOL_WRENCH))
-		new /obj/item/stack/sheet/metal(user.loc)
+		new /obj/item/stack/sheet/scrap_metal(user.loc)
 		qdel(src)
 
 	if(istype(W, /obj/item/stack/rods))
@@ -42,7 +42,7 @@
 		var/obj/item/stack/sheet/wood/S = W
 		if(S.use(2))
 			new /obj/item/frame/table/wood(get_turf(src))
-			new /obj/item/stack/sheet/metal(get_turf(src))
+			new /obj/item/stack/sheet/scrap_metal(get_turf(src))
 			to_chat(user, SPAN_NOTICE("You replace the metal parts of [src]."))
 			user.temp_drop_inv_item(src)
 			qdel(src)

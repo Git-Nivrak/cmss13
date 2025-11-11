@@ -189,6 +189,7 @@
 		/obj/item/tool/weldingtool,
 		/obj/item/stack/cable_coil,
 		/obj/item/stack/sheet/metal,
+		/obj/item/stack/sheet/scrap_metal,
 		/obj/item/device/radio,
 		/obj/item/attachable/bayonet,
 	)

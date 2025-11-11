@@ -12,7 +12,7 @@
 
 /obj/item/frame/light_fixture/attackby(obj/item/W as obj, mob/user as mob)
 	if (HAS_TRAIT(W, TRAIT_TOOL_WRENCH))
-		new /obj/item/stack/sheet/metal( get_turf(src.loc), sheets_refunded )
+		new /obj/item/stack/sheet/scrap_metal( get_turf(src.loc), sheets_refunded )
 		qdel(src)
 		return
 	..()

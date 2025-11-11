@@ -91,7 +91,7 @@
 			var/obj/item/stack/sheet/sheet_stack
 			switch(material)
 				if("metal")
-					sheet_stack = new /obj/item/stack/sheet/metal(loc)
+					sheet_stack = new /obj/item/stack/sheet/scrap_metal(loc)
 				if("glass")
 					sheet_stack = new /obj/item/stack/sheet/glass(loc)
 			if(sheet_stack)

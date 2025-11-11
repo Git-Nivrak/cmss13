@@ -113,7 +113,7 @@
 			return
 		to_chat(user, SPAN_NOTICE("You pulled \the [src] apart."))
 		playsound(loc, 'sound/items/Deconstruct.ogg', 25, 1)
-		new /obj/item/stack/sheet/metal(loc, 5)
+		new /obj/item/stack/sheet/scrap_metal(loc, 5)
 		if(glass == AIRLOCK_GLASSIN)
 			new /obj/item/stack/sheet/glass(loc, 5)
 		qdel(src)

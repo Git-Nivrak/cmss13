@@ -67,8 +67,8 @@
 	var/turf/Tsec = get_turf(src)
 	new /obj/item/stack/rods(Tsec)
 	new /obj/item/stack/rods(Tsec)
-	new /obj/item/stack/sheet/metal(Tsec)
-	new /obj/item/stack/sheet/metal(Tsec)
+	new /obj/item/stack/sheet/scrap_metal(Tsec)
+	new /obj/item/stack/sheet/scrap_metal(Tsec)
 	new /obj/item/stack/cable_coil/cut(Tsec)
 
 	new /obj/effect/spawner/gibspawner/robot(Tsec)

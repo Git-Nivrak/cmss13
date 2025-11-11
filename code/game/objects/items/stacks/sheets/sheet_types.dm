@@ -93,6 +93,86 @@ GLOBAL_LIST_INIT_TYPED(metal_recipes, /datum/stack_recipe, list ( \
 	return ..()
 
 /*
+* Scrap metal
+*/
+GLOBAL_LIST_INIT_TYPED(metal_scrap_recipes, /datum/stack_recipe, list ( \
+	new/datum/stack_recipe("apc frame", /obj/item/frame/apc, 2), \
+	new/datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2), \
+	null, \
+	new/datum/stack_recipe("light fixture frame", /obj/item/frame/light_fixture, 2), \
+	new/datum/stack_recipe("small light fixture frame", /obj/item/frame/light_fixture/small, 1), \
+	null, \
+	new/datum/stack_recipe("floor tile", /obj/item/stack/tile/plasteel, 1, 4, 20), \
+	new/datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60), \
+	new/datum/stack_recipe("wall girder", /obj/structure/girder, 2, time = 50, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_ENGI), \
+	new/datum/stack_recipe("window frame", /obj/structure/window_frame/almayer, 5, time = 50, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_ENGI), \
+	new/datum/stack_recipe("airlock assembly", /obj/structure/airlock_assembly, 5, time = 50, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_ENGI), \
+	new/datum/stack_recipe("large airlock assembly", /obj/structure/airlock_assembly/multi_tile, 5, time = 50, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_ENGI), \
+	null, \
+	new/datum/stack_recipe("bed", /obj/structure/bed, 2, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+	new/datum/stack_recipe("chair", /obj/structure/bed/chair, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+	new/datum/stack_recipe_list("comfy chairs", list( \
+		new/datum/stack_recipe("beige comfy chair", /obj/structure/bed/chair/comfy/beige, 2, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		new/datum/stack_recipe("black comfy chair", /obj/structure/bed/chair/comfy/black, 2, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		new/datum/stack_recipe("brown comfy chair", /obj/structure/bed/chair/comfy/orange, 2, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		new/datum/stack_recipe("lime comfy chair", /obj/structure/bed/chair/comfy/lime, 2, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		new/datum/stack_recipe("teal comfy chair", /obj/structure/bed/chair/comfy/teal, 2, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		), 2), \
+	new/datum/stack_recipe_list("squad chairs", list( \
+		new/datum/stack_recipe("alpha squad chair", /obj/structure/bed/chair/comfy/alpha, 2, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		new/datum/stack_recipe("bravo squad chair", /obj/structure/bed/chair/comfy/bravo, 2, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		new/datum/stack_recipe("charlie squad chair", /obj/structure/bed/chair/comfy/charlie, 2, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		new/datum/stack_recipe("delta squad chair", /obj/structure/bed/chair/comfy/delta, 2, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		), 2), \
+	new/datum/stack_recipe_list("office chairs",list( \
+		new/datum/stack_recipe("dark office chair", /obj/structure/bed/chair/office/dark, 5, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		new/datum/stack_recipe("light office chair", /obj/structure/bed/chair/office/light, 5, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
+		), 5), \
+	new/datum/stack_recipe("stool", /obj/structure/bed/stool, one_per_turf = 1, on_floor = 1), \
+	null, \
+	new/datum/stack_recipe("computer frame", /obj/structure/computerframe, 5, time = 25, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_MASTER), \
+	new/datum/stack_recipe("machine frame", /obj/structure/machinery/constructable_frame, 5, time = 25, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_MASTER), \
+	null, \
+	new/datum/stack_recipe("metal baseball bat", /obj/item/weapon/baseballbat/metal, 10, time = 20, on_floor = 1), \
+	null, \
+))
+
+
+/obj/item/stack/sheet/scrap_metal
+	name = "scrap metal"
+	desc = "Metal scraps from chair tables, what your dad has in his garage \"Just in case\"."
+	singular_name = "metal scrap"
+	icon_state = "sheet-metal"
+	item_state = "sheet-metal"
+	matter = list("metal" = 3750)
+	throwforce = 14
+	flags_atom = FPRINT|CONDUCT
+	amount_sprites = TRUE
+	sheettype = "metal"
+	stack_id = "metal_scrap"
+
+
+/obj/item/stack/sheet/scrap_metal/small_stack
+	amount = STACK_10
+
+/obj/item/stack/sheet/scrap_metal/med_small_stack
+	amount = STACK_20
+
+/obj/item/stack/sheet/scrap_metal/medium_stack
+	amount = STACK_30
+
+/obj/item/stack/sheet/scrap_metal/med_large_stack
+	amount = STACK_40
+
+/obj/item/stack/sheet/scrap_metal/large_stack
+	amount = STACK_50
+
+
+/obj/item/stack/sheet/scrap_metal/Initialize(mapload, amount)
+	recipes = GLOB.metal_scrap_recipes
+	return ..()
+
+/*
  * Plasteel
  */
 GLOBAL_LIST_INIT_TYPED(plasteel_recipes, /datum/stack_recipe, list ( \
